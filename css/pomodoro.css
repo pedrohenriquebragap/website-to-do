@@ -1,0 +1,180 @@
+/* Seção do Pomodoro */
+.pomodoro-section {
+    margin-top: 90px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 90px);
+}
+
+/* Container do Timer */
+.timer-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Container do Display e Círculo */
+.timer-display-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+}
+
+/* ==== Timer Section ==== */
+/* Styles related to the timer display and circle */
+
+/* Círculo do Timer */
+.timer-circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.timer-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.timer-progress-bg,
+.timer-progress {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+}
+
+.timer-progress-bg {
+    stroke: var(--shadow-color);
+}
+
+.timer-progress {
+    stroke: var(--button-bg);
+    transition: stroke-dashoffset 1s linear;
+    stroke-dasharray: 565.48; /* 2 * PI * 90 */
+    stroke-dashoffset: 0;
+}
+
+/* Display do Timer */
+.timer-display {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Controles do Timer */
+.timer-controls {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.action-controls {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* ==== Button Styles ==== */
+/* Styles for all button elements */
+
+/* Botões */
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    min-width: 120px;
+}
+
+.btn:hover {
+    background-color: var(--shadow-color);
+}
+
+.btn.active,
+.start-btn {
+    background-color: var(--button-bg);
+    color: white;
+}
+
+.pause-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.reset-btn {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+/* Estados */
+.hidden {
+    display: none;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.timer-display.time-up {
+    animation: pulse 1s infinite;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .pomodoro-section {
+        padding: 1rem;
+    }
+
+    .timer-container {
+        max-width: 100%;
+    }
+
+    .timer-display {
+        font-size: 2rem;
+    }
+
+    .timer-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn {
+        width: 100%;
+        max-width: 200px;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Acessibilidade */
+.btn:focus {
+    outline: 2px solid var(--button-bg);
+    outline-offset: 4px;
+}

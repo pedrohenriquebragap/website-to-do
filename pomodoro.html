@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do - Pomodoro</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/pomodoro.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
+        <div class="navbar-brand">
+            <h1>To-do</h1>
+        </div>
+        <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-overlay" id="nav-menu" aria-hidden="true">
+            <ul class="nav-menu">
+                <li><a href="index.html" aria-label="Ir para lembretes">Lembretes</a></li>
+                <li><a href="agenda.html" aria-label="Ir para agenda">Agenda</a></li>
+                <li><a href="pomodoro.html" aria-label="Ir para pomodoro">Pomodoro</a></li>
+                <li><a href="listas.html" aria-label="Ir para listas">Listas</a></li>
+                <li class="theme-buttons">
+                    <button class="theme-btn" data-theme="light" aria-label="Ativar tema claro">☀️</button>
+                    <button class="theme-btn" data-theme="dark" aria-label="Ativar tema escuro">🌙</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Seção Principal do Pomodoro -->
+    <main class="pomodoro-section">
+        <div class="timer-container">
+            <div class="timer-display-container">
+                <div class="timer-circle">
+                    <svg viewBox="0 0 200 200">
+                        <circle class="timer-progress-bg" cx="100" cy="100" r="90"/>
+                        <circle class="timer-progress" cx="100" cy="100" r="90"/>
+                    </svg>
+                </div>
+                <div class="timer-display">25:00</div>
+            </div>
+
+            <div class="timer-controls">
+                <button class="btn pomodoro-btn active" data-mode="pomodoro">Pomodoro</button>
+                <button class="btn short-break-btn" data-mode="shortBreak">Pausa Curta</button>
+                <button class="btn long-break-btn" data-mode="longBreak">Pausa Longa</button>
+            </div>
+
+            <div class="action-controls">
+                <button class="btn start-btn">Iniciar</button>
+                <button class="btn pause-btn hidden">Pausar</button>
+                <button class="btn reset-btn">Reiniciar</button>
+            </div>
+        </div>
+
+        <audio id="timer-alarm" preload="auto">
+            <source src="notification.mp3" type="audio/mpeg">
+        </audio>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/pomodoro.js"></script>
+</body>
+</html>

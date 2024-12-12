@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do - Listas</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/listas.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
+        <div class="navbar-brand">
+            <h1>To-do</h1>
+        </div>
+        <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-overlay" id="nav-menu" aria-hidden="true">
+            <ul class="nav-menu">
+                <li><a href="index.html#lembretes" aria-label="Ir para lembretes">Lembretes</a></li>
+                <li><a href="agenda.html" aria-label="Ir para agenda">Agenda</a></li>
+                <li><a href="pomodoro.html" aria-label="Ir para pomodoro">Pomodoro</a></li>
+                <li><a href="listas.html" aria-label="Ir para listas">Listas</a></li>
+                <li class="theme-buttons">
+                    <button class="theme-btn" data-theme="light" aria-label="Ativar tema claro">☀️</button>
+                    <button class="theme-btn" data-theme="dark" aria-label="Ativar tema escuro">🌙</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Seção Principal das Listas -->
+    <main class="lists-section" role="main">
+        <header class="lists-header">
+            <h2>Minhas Listas</h2>
+            <button class="add-list-btn" aria-label="Adicionar nova lista">
+                <span>Adicionar Lista</span>
+            </button>
+        </header>
+
+        <!-- Container das Listas -->
+        <div class="lists-container">
+            <!-- As listas serão inseridas aqui via JavaScript -->
+        </div>
+
+        <!-- Modal de Adicionar Lista -->
+        <div class="modal" id="list-modal" aria-hidden="true">
+            <div class="modal-content">
+                <h3 class="modal-title">Nova Lista</h3>
+                <form id="list-form">
+                    <div class="form-group">
+                        <label for="list-title">Título da Lista*</label>
+                        <input type="text" id="list-title" class="input-field" 
+                               required placeholder="Digite o título da lista">
+                    </div>
+
+                    <div class="items-container">
+                        <!-- Os itens da lista serão inseridos aqui -->
+                    </div>
+
+                    <button type="button" class="add-item-btn" id="add-item-btn">
+                        Adicionar Item
+                    </button>
+
+                    <div class="form-actions">
+                        <button type="submit" class="save-btn">
+                            <span class="btn-text">Salvar Lista</span>
+                        </button>
+                        <button type="button" class="cancel-btn">
+                            <span class="btn-text">Cancelar</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Modal de Confirmação -->
+        <div class="confirm-modal" id="confirm-modal" aria-hidden="true">
+            <div class="confirm-content">
+                <h3 class="confirm-title">Excluir Lista</h3>
+                <p class="confirm-message">
+                    Tem certeza que deseja excluir esta lista? Esta ação não pode ser desfeita.
+                </p>
+                <div class="confirm-actions">
+                    <button class="confirm-btn">Excluir</button>
+                    <button class="cancel-confirm-btn">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/script.js"></script>
+    <script src="js/listas.js"></script>
+</body>
+</html>

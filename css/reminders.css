@@ -1,0 +1,378 @@
+/* Seção de Lembretes */
+.reminders-section {
+    margin-top: 90px;
+    padding: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Header dos Lembretes */
+.reminders-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.reminders-header h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+}
+
+.add-reminder-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.add-reminder-btn:hover {
+    background-color: #45a049;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1100;
+}
+
+.modal.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--modal-bg);
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    overflow-y: auto;
+    border: 1px solid var(--shadow-color);
+}
+
+.modal h3 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Formulário */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--shadow-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: var(--input-bg);
+    color: var(--input-text);
+    transition: all var(--transition-speed);
+}
+
+.form-group input[type="text"]:focus,
+.form-group textarea:focus {
+    border-color: var(--button-bg);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+/* Color Picker */
+.color-picker {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.color-picker input[type="color"] {
+    width: 50px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Emoji Picker */
+.emoji-picker {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.emoji-picker button {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.emoji-picker button.selected {
+    background-color: #e3f2fd;
+    border-color: #2196F3;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.save-btn,
+.cancel-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.save-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #45a049;
+}
+
+.cancel-btn {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    border: 1px solid var(--shadow-color);
+}
+
+.cancel-btn:hover {
+    background-color: var(--shadow-color);
+}
+
+/* Container de Lembretes */
+.reminders-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Card do Lembrete */
+.reminder-card {
+    background-color: var(--card-bg);
+    border-radius: 12px 12px 0 0;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: var(--card-text);
+    position: relative;
+}
+
+.reminder-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: var(--reminder-color);
+    border-radius: 4px 4px 0 0;
+}
+
+.reminder-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.reminder-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.reminder-emoji {
+    font-size: 1.5rem;
+}
+
+.reminder-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.reminder-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.reminder-content {
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .reminders-section {
+        padding: 1rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+
+    .reminders-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Delete Button */
+.delete-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.delete-btn:hover {
+    opacity: 1;
+    transform: scale(1.1);
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+/* Confirmation Modal */
+.confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1200;
+    backdrop-filter: blur(5px);
+}
+
+.confirm-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.confirm-content {
+    background-color: var(--modal-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: slideUp 0.3s ease;
+}
+
+.confirm-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.confirm-message {
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+}
+
+.confirm-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.confirm-btn,
+.cancel-confirm-btn {
+    padding: 0.75rem 2rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.confirm-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #c82333;
+}
+
+.cancel-confirm-btn {
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.cancel-confirm-btn:hover {
+    background-color: var(--shadow-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Acessibilidade */
+.form-group input:focus,
+.form-group textarea:focus,
+.emoji-picker button:focus,
+.add-reminder-btn:focus {
+    outline: 2px solid #2196F3;
+    outline-offset: 2px;
+}

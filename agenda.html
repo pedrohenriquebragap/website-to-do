@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do - Agenda</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/agenda.css">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar Container -->
+    <nav class="navbar" role="navigation" aria-label="Menu principal">
+        <div class="navbar-brand">
+            <h1>To-do</h1>
+        </div>
+        <button class="hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-overlay" id="nav-menu" aria-hidden="true">
+            <ul class="nav-menu">
+                <li><a href="index.html" aria-label="Ir para lembretes">Lembretes</a></li>
+                <li><a href="agenda.html" aria-label="Ir para agenda">Agenda</a></li>
+                <li><a href="pomodoro.html" aria-label="Ir para pomodoro">Pomodoro</a></li>
+                <li><a href="listas.html" aria-label="Ir para listas">Listas</a></li>
+                <li class="theme-buttons">
+                    <button class="theme-btn" data-theme="light" aria-label="Ativar tema claro">☀️</button>
+                    <button class="theme-btn" data-theme="dark" aria-label="Ativar tema escuro">🌙</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<!-- Seção Principal da Agenda -->
+<main class="agenda-section" id="agenda">
+    <!-- Cabeçalho do Calendário -->
+    <div class="calendar-header">
+        <button class="nav-btn prev-month" aria-label="Mês anterior">
+            ←
+        </button>
+        <h2 class="current-month">Janeiro 2025</h2>
+        <button class="nav-btn next-month" aria-label="Próximo mês">
+            →
+        </button>
+    </div>
+
+    <!-- Grid do Calendário -->
+    <div class="calendar-grid">
+        <!-- Dias da Semana -->
+        <div class="weekday">Dom</div>
+        <div class="weekday">Seg</div>
+        <div class="weekday">Ter</div>
+        <div class="weekday">Qua</div>
+        <div class="weekday">Qui</div>
+        <div class="weekday">Sex</div>
+        <div class="weekday">Sáb</div>
+    </div>
+
+    <!-- Lista de Compromissos -->
+    <section class="appointments-list">
+        <h3>Compromissos</h3>
+        <div class="appointments-container">
+            <!-- Os compromissos serão inseridos via JavaScript -->
+        </div>
+    </section>
+</main>
+
+<!-- Modal de Agendamento -->
+<div class="modal" id="appointment-modal" aria-hidden="true">
+    <div class="modal-content">
+        <h3 class="modal-title">Adicionar Compromisso</h3>
+        <form id="appointment-form">
+            <div class="form-group">
+                <label for="appointment-title">Título do Compromisso*</label>
+                <input type="text" id="appointment-title" required 
+                       class="input-field" placeholder="Digite o título">
+            </div>
+
+            <div class="form-group">
+                <label for="appointment-date">Data</label>
+                <input type="text" id="appointment-date" readonly 
+                       class="input-field">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="start-time">Horário de Início*</label>
+                    <input type="time" id="start-time" required 
+                           class="input-field" value="08:00">
+                </div>
+
+                <div class="form-group">
+                    <label for="end-time">Horário de Término*</label>
+                    <input type="time" id="end-time" required 
+                           class="input-field" value="09:00">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="appointment-color">Cor do Compromisso</label>
+                <div class="color-picker">
+                    <input type="color" id="appointment-color" value="#4CAF50">
+                    <div class="color-preview" role="presentation"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="appointment-notes">Observações</label>
+                <textarea id="appointment-notes" rows="4" 
+                          class="input-field"
+                          placeholder="Adicione observações sobre o compromisso"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="save-btn">
+                    <span class="btn-text">Salvar Compromisso</span>
+                </button>
+                <button type="button" class="cancel-btn">
+                    <span class="btn-text">Cancelar</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>    <!-- Modal de Agendamento -->
+<div class="modal" id="appointment-modal" aria-hidden="true">
+    <div class="modal-content">
+        <h3 class="modal-title">Adicionar Compromisso</h3>
+        <form id="appointment-form">
+            <div class="form-group">
+                <label for="appointment-title">Título do Compromisso*</label>
+                <input type="text" id="appointment-title" required 
+                       class="input-field" placeholder="Digite o título">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="appointment-date">Data</label>
+                    <input type="text" id="appointment-date" readonly 
+                           class="input-field">
+                </div>
+
+                <div class="form-group">
+                    <label for="start-time">Horário de Início*</label>
+                    <input type="time" id="start-time" required 
+                           class="input-field" value="08:00">
+                </div>
+
+                <div class="form-group">
+                    <label for="end-time">Horário de Término*</label>
+                    <input type="time" id="end-time" required 
+                           class="input-field" value="09:00">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="appointment-color">Cor do Compromisso</label>
+                <div class="color-picker">
+                    <input type="color" id="appointment-color" value="#4CAF50">
+                    <div class="color-preview" role="presentation"></div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="appointment-notes">Observações</label>
+                <textarea id="appointment-notes" rows="4" 
+                          class="input-field"
+                          placeholder="Adicione observações sobre o compromisso"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="save-btn">
+                    <span class="btn-text">Salvar Compromisso</span>
+                </button>
+                <button type="button" class="cancel-btn">
+                    <span class="btn-text">Cancelar</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+    <script src="js/script.js"></script>
+    <script src="js/agenda.js"></script>
+</body>
+</html>
